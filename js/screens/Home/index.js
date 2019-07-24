@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { ActivityIndicator, Dimensions, FlatList, View } from "react-native";
 import { Appbar, Card, Title } from "react-native-paper";
+import ImageURLs from "../../utils/pokeImageURLs";
 
 const { width } = Dimensions.get("screen");
 
@@ -57,7 +58,7 @@ export default class App extends Component {
             numColumns={2}
             renderItem={({ item }) => (
               <Card
-                style={{ width: (width - 16) / 2, padding: 16 }}
+                style={{ width: (width - 32) / 2, margin: 8 }}
                 onPress={() =>
                   this.props.navigation.navigate("Details", {
                     url: item.url,
@@ -68,8 +69,8 @@ export default class App extends Component {
                 }
               >
                 <Card.Cover
-                  style={{ width: 150, height: 150 }}
-                  source={require("../../../assets/pokeball.png")}
+                  style={{ width: "100%", height: 150 }}
+                  source={{ uri: ImageURLs.getSprite(item.name) }}
                 />
                 <Card.Content>
                   <Title>

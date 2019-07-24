@@ -36,6 +36,7 @@ export default class App extends Component {
         }}
       >
         <Appbar.Header dark>
+          <Appbar.BackAction onPress={() => this.props.navigation.goBack()} />
           <Appbar.Content title={name} />
         </Appbar.Header>
         <ScrollView style={{ flex: 1 }}>
